@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class EventRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return false;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $method = $this->method();
+       
+        if ($method == "POST") {
+            return [
+                "event"       =>  "required",
+                "dateFrom"    =>  "required|date|date_format:Y-m-d",
+                "dateTo"      =>  "required|date|date_format:Y-m-d",
+                "checkedDays" =>  "required"
+            ];
+        }
+    }
+}
