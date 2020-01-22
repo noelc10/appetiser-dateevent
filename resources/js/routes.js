@@ -10,24 +10,24 @@ export const router = new Router({
             component   :   require("./components/Home.vue").default,
             meta    :   { guest: true }
         },
-        // {
-        //     path    :   "/home",
-        //     name    :   "home",
-        //     component   :   require("./components/Home.vue").default,
-        //     meta    :   { layout: "default", auth: true }
-        // },
-        // {
-        //     path    :   "/login",
-        //     name    :   "login",
-        //     component   :   require("./components/auth/Login.vue").default,
-        //     meta    :   { layout: "default", guest: true }
-        // },
-        // {
-        //     path    :   "/register",
-        //     name    :   "register",
-        //     component   :   require("./components/auth/Register.vue").default,
-        //     meta    :   { layout: "default", guest: true }
-        // },
+        {
+            path    :   "/home",
+            name    :   "home",
+            component   :   require("./components/Home.vue").default,
+            meta    :   { layout: "default", auth: true }
+        },
+        {
+            path    :   "/login",
+            name    :   "login",
+            component   :   require("./components/auth/Login.vue").default,
+            meta    :   { layout: "default", guest: true }
+        },
+        {
+            path    :   "/register",
+            name    :   "register",
+            component   :   require("./components/auth/Register.vue").default,
+            meta    :   { layout: "default", guest: true }
+        },
     ]
 
 });
