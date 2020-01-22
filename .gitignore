@@ -16,3 +16,13 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+
+.lock
+/public/js
+/public/css
+/public/*.json
+/storage/*.key
+.env.backup
+.phpunit.result.cache
+npm-debug.log
+yarn-error.log

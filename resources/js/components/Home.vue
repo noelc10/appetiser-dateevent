@@ -102,6 +102,10 @@
 <script>
     import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
 
+    import { mapGetters } from 'vuex';
+
+    import Header from './Header';
+
     export default {
         data() {
             return {
@@ -121,6 +125,12 @@
                 dayNames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
                 submitting: false,
             }
+        },
+        computed: {
+            ...mapGetters({
+                isLoggedIn : 'loginStatus',
+                base_url : 'baseUrl'
+            })
         },
         methods: {
             moment(date) {
@@ -144,7 +154,7 @@
             },
             submit(e) {
                 this.submitting = true;
-                
+
                 $('#dayTable > tbody  > tr#dayBlock').removeClass('table-success').children().children().find('.eventContainer').text('');
 
                 let dayFrom = parseInt(moment(this.dateFrom).format('D'));
@@ -171,22 +181,17 @@
                                         }
                                     }
                                 });
-                                
+
                                 this.$toastr.s('Event successfully saved');
-                                this.submitting = false;
-                                this.event = '';
-                                this.dateFrom = '';
-                                this.dateTo = '';
-                                this.checkedDays = [];
-                                this.$validator.reset();
+                                this.clearForm();
                             } else {
                                 this.submitting = false;
                                 this.$toastr.e('Error saving event');
-                                
+
                                 console.log(response);
                             }
                         }).catch(error => {
-                            this.submitting = false;
+                            this.clearForm();
                             console.log(error);
                         });
 
@@ -197,6 +202,14 @@
                 }).catch((e) =>  {
                     console.log(e);
                 });
+            },
+            clearForm() {
+                this.submitting = false;
+                this.event = '';
+                this.dateFrom = '';
+                this.dateTo = '';
+                this.checkedDays = [];
+                this.$validator.reset();
             }
         },
         filters: {

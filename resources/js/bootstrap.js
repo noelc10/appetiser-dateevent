@@ -1,3 +1,6 @@
+import Vue from 'vue';
+import axios from 'axios';
+
 window._ = require('lodash');
 
 /**
@@ -53,3 +56,7 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+Vue.prototype.$api = axios
+
+export default axios

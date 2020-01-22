@@ -13,10 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::group(['prefix' => 'v1'], function() {
+    Route::group(['prefix' => 'auth'], function ($router) {
+        Route::post('login', 'Api\Auth\AuthController@login');
+        Route::post('logout', 'Api\Auth\AuthController@logout');
+        Route::post('refresh', 'Api\Auth\AuthController@refresh');
+        Route::post('me', 'Api\Auth\AuthController@me');
+    });
 
-Route::prefix('v1',['middleware' => 'web'])->group(function() {
     Route::post('/save-event', 'Api\EventsController@saveEvent');
 });
+
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });

@@ -67,9 +67,11 @@
         </style>
     </head>
     <body>
-        <div id="app" class="flex-center position-ref full-height">
-            <vue-toastr ref="mytoast"></vue-toastr>
-            @if (Route::has('login'))
+        <div id="app">
+            <App></App>
+            {{--  <router-view></router-view>  --}}
+            {{--  <vue-toastr ref="mytoast"></vue-toastr>  --}}
+            {{--  @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -81,12 +83,12 @@
                         @endif
                     @endauth
                 </div>
-            @endif
+            @endif  --}}
 
-            <div class="content">
+            {{--  <div class="content">
                 <div class="title m-b-md">
                     Appetiser Date Event Test
-                </div>
+                </div>  --}}
 
                 {{--  <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
@@ -97,7 +99,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>  --}}
-            </div>
+            {{--  </div>  --}}
         </div>
 
         <script src="{{ asset('js/app.js') }}"></script>

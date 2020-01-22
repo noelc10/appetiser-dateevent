@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group([ 'prefix' => '' ], function () {
+    Route::get('', function () {
+        return view('welcome');
+    });
+
+    Route::any('/{any?}', function ($any) {
+        return view('welcome');
+    })->where('any', '^((?!api).)*');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

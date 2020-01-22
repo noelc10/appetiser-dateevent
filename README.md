@@ -1,8 +1,8 @@
-# Noel Calonia's Coding Challenge for Appetiser Pte. Ltd. Application for Web Developer
+# Date Event
 
-This is my coding challenge project for applying for web developer in Appetiser Pte. Ltd.
+## Setup
 
-In order to run my project, please follow the steps below:
+In order to run the project, please follow the steps below:
 
 `npm install`
 `composer install`
